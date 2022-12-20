@@ -1,6 +1,6 @@
 # Advent Of Code 2022
 
-Solutions of Advent of Code :santa:
+My solutions for advent of code 2022 problems 🎅
 
 ## Getting the code
 
