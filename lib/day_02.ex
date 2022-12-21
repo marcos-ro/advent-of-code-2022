@@ -6,20 +6,20 @@ defmodule Day02 do
     |> Enum.filter(&(&1 != [""]))
   end
 
-  def simulate(elf_strategy_guide, parse_policy_version \\ :v1) do
+  def simulate_elf_strategy(elf_strategy_guide, parse_policy_version \\ :v1) do
     cond do
       parse_policy_version == :v1 ->
-        processing_elf_strategy_guide(elf_strategy_guide, &parse_policy_1/1)
+        processing_strategy_guide(elf_strategy_guide, &parse_policy_1/1)
 
       parse_policy_version == :v2 ->
-        processing_elf_strategy_guide(elf_strategy_guide, &parse_policy_2/1)
+        processing_strategy_guide(elf_strategy_guide, &parse_policy_2/1)
     end
   end
 
-  defp processing_elf_strategy_guide(elf_strategy_guide, parse_policy) do
+  defp processing_strategy_guide(elf_strategy_guide, parse_policy) do
     elf_strategy_guide
     |> Enum.map(parse_policy)
-    |> Enum.map(&processing_elf_choises/1)
+    |> Enum.map(&processing_choises/1)
     |> Enum.sum()
   end
 
@@ -52,7 +52,7 @@ defmodule Day02 do
     end
   end
 
-  defp processing_elf_choises(choises) do
+  defp processing_choises(choises) do
     case choises do
       [:rock, {:paper, score}] -> score + 6
       [:paper, {:scissors, score}] -> score + 6
